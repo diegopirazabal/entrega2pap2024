@@ -42,7 +42,7 @@ public class Perfil extends HttpServlet {
         String sessionUsername = parts[0].trim(); // "carlos"
         String sessionFullName = parts[1].trim();  // "Carlos Tevez"
 		dataTypeUsuario aux;
-
+		
 
 		try {
 			aux = icon.verInfoUsuario(sessionUsername);

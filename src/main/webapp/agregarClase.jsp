@@ -14,49 +14,48 @@
 	crossorigin="anonymous" />
 
 </head>
-
+<style>
+	#idTipo, #listaAct {
+		display: none;
+	}
+</style>
 <body>
-
+<jsp:include page="/head.jsp"/>
 <div class="text-center" >
  <h1>Agregar Clase</h1>
-	<form action="cargarActividades" method="post">
-		  <!-- Contenedor para los elementos dinámicos -->
-            <div class="input-group-prepend" id="contenedorElementos">
-               <!-- Aquí se mostrarán los elementos dinámicos -->
-            </div>
-	   <br>
-		<button type="submit" class="btn btn-primary">Cargar Actividades</button>
-		<button type="button" id="boton" class="btn btn-primary">Cargar Actividades</button>
-		<br>
-		<br>
-      </form>
-      <form action="agregarClase" method="post">
+ 		<form action="cargarActividades" method="post">
+ 		<button type="submit" class="btn btn-primary">Cargar Actividades</button>
+ 		</form>
+ <br>
+      <form action="AgregarClase" method="post">
       <div class="form-group">
-			<label for="exampleInputPassword1">Nombre:</label> <input type="text" name="nombre" style="width: 600px class="form-control" id="exampleInputPassword1"
-				placeholder="Ingrese un nombre ">
+      		<label for="actividadesList">Selecciona una actividad:</label>
+                   <select id="actividadesList" name="actividades" onchange="mostrarElementos()" class="form-control">
+                    
+            		</select>
+      	<br>
+			<label for="nombre">Nombre:</label> <input type="text" name="nombre" class="form-control"  id="nombre"
+				placeholder="Nombre de la clase ">
 		</div>
 		
 		<div class="form-group">
-			<label for="exampleInputPassword1">Descripcion:</label> <input type="text" name="descripcion" style="width: 600px class="form-control" id="exampleInputPassword1" placeholder="Ingrese uasdasdna descripcion ">
+			<label for="fecha">Fecha:</label> <input type="date" name="fecha" class="form-control" style="width: 600px id="fecha" placeholder="Fecha ">
 		</div>
 		
 		<div class="form-group">
-           <label for="numero">Ingresa una duracion:</label> <input type="number" id="numero" name="duracion" style="width: 600px class="form-control" id="exampleInputPassword1" placeholder="Ingresa duracion">
+           <label for="hora">Ingresa una hora:</label> <input type="text" id="hora" name="hora" class="form-control" style="width: 600px id="hora" placeholder="Ingresa hora">
         </div>
 		
 		<div class="form-group">
-			<label for="exampleInputPassword1">Costo</label> <input type="number" id="numero" name="costo" style="width: 600px class="form-control" id="exampleInputPassword1"  placeholder="Ingresa el costo">
+			<label for="lugar">Costo</label> <input type="lugar" id="lugar" name="lugar" class="form-control" style="width: 600px id="lugar"  placeholder="Ingresa el lugar">
 		</div>
 		<div class="form-group">
-			<label for="exampleInputPassword1">Lugar:</label> <input type="text" name="lugar" style="width: 600px class="form-control" id="exampleInputPassword1" placeholder="Ingrese un lugar">
+			<label for="cupos">Cupos:</label> <input type="number" name="cupos" class="form-control" style="width: 600px id="cupos" placeholder="Ingrese cupos">
 		</div>
       	<button type="submit" class="btn btn-primary">Agregar Clase</button>
       </form>
       	<br><br><br>
-      	<p>${nombre}</p>
-	    <p>${apellido}</p>
-	    <p>${email}</p>
-	    <p>${fechaNac}</p>
+ 
 	    <p id="idTipo">${tipoUsuario}</p>
 	    <p id="listaAct">${listaAct}</p>
 
@@ -66,9 +65,9 @@
  </body>  
  
  	<script>	
-		 	var boton = document.getElementById("boton");
-			boton.addEventListener("click", mostrarElementos);
-			mostrarElementos();
+		 	//var boton = document.getElementById("boton");
+			//boton.addEventListener("click", mostrarElementos);
+
 			function mostrarElementos() {
 			    // Obtén el valor seleccionado del combo box
 			    var seleccion = document.getElementById("idTipo").innerHTML;
@@ -78,19 +77,19 @@
 			    var contenedor = document.getElementById("contenedorElementos");
 			    
 			    // Limpia el contenido anterior del contenedor
-			    contenedor.innerHTML = "";
+			    //contenedor.innerHTML = "";
 			    
 			    //if (seleccion === "Entrenador") {
 			        
 			        // Crea un nuevo select dinámico
-			        var labelActividades = document.createElement("label");
-			        labelActividades.textContent = "Actividades:   ";
-			        var cajaActividades = document.createElement("select");
-			        cajaActividades.id = "actividades";
-			        cajaActividades.name = "actividades"; 
-			        contenedor.appendChild(labelActividades);
-			        contenedor.appendChild(cajaActividades);
-			        "
+			     //   var labelActividades = document.createElement("label");
+			      //  labelActividades.textContent = "Actividades:   ";
+			        var cajaActividades = document.getElementById("actividadesList");
+			      //  cajaActividades.id = "actividades";
+			      //  cajaActividades.name = "actividades"; 
+			      //  contenedor.appendChild(labelActividades);
+			        //contenedor.appendChild(cajaActividades);
+			        
 			        // Obtén las opciones del párrafo y elimina los corchetes
 			        var textoActividades = document.getElementById("listaAct").innerHTML;
 			        var opcionesTexto = textoActividades.replace(/^\[|\]$/g, ''); // Elimina [ y ]
@@ -101,6 +100,7 @@
 			        opciones.forEach(function(actividad) {
 			        var opcion = document.createElement("option");
 			        opcion.value = actividad.trim(); // Asigna el valor y elimina espacios en blanco
+			        opcion.value = opcion.value.split(" - ")[0];
 			        opcion.textContent = actividad.trim(); // El texto visible para la opción
 			        cajaActividades.appendChild(opcion); // Agrega la opción al select
 			        });
@@ -110,6 +110,9 @@
 			 
 			//}
 			}
+
+			mostrarElementos();
+			
 			</script>
  
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
