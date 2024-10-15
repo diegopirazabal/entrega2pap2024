@@ -46,19 +46,16 @@ public class PerfilModificado extends HttpServlet {
 
 		try {
 			aux = icon.verInfoUsuario(sessionUsername);
-<<<<<<< Updated upstream
 			String nombre = request.getParameter("nombre");
 //			String apellido = (String) request.getAttribute("apellido");
 			//System.out.println("El nombre nuevo es: " + nombre);
 //			icon.editarNombreApellido(sessionUsername, nombre, apellido);
 //			aux = icon.verInfoUsuario(sessionUsername);
-=======
 			String nombre = request.getParameter("nuevoNombre");
 			System.out.println("El nuevo nombre en modificado es: " + nombre);
 			String apellido = request.getParameter("nuevoApellido");
 			icon.editarNombreApellido(sessionUsername, nombre, apellido);
 			aux = icon.verInfoUsuario(sessionUsername);
->>>>>>> Stashed changes
 			System.out.println("El usuario modificado en modificado es: " + aux.getNombre() + " " + aux.getApellido());
 			request.setAttribute("nombre", aux.getNombre());
 			request.setAttribute("apellido", aux.getApellido());

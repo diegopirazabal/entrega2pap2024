@@ -52,15 +52,11 @@ public class Perfil extends HttpServlet {
 			request.setAttribute("apellido", aux.getApellido());
 			request.setAttribute("nickname", aux.getNickname());
 			request.setAttribute("email", aux.getEmail());
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 			Date fecha = aux.getFNacimiento();
 			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 	        String fechaFormateada = sdf.format(fecha);
 			request.setAttribute("fecha", fechaFormateada);
-<<<<<<< Updated upstream
+
 			String nombre = request.getParameter("nombre");
 			String apellido = request.getParameter("apellido");
 			System.out.println("El nombre nuevo en AAAPerfil es: " + nombre);
@@ -68,9 +64,9 @@ public class Perfil extends HttpServlet {
 			//aux = icon.verInfoUsuario(sessionUsername);
 			//System.out.println("El usuario modificado es: " + aux.getNombre() + " " + aux.getApellido());
 			//request.getRequestDispatcher("/PerfilModificado.jsp").forward(request, response);
-=======
+
 			request.getRequestDispatcher("/perfil.jsp").forward(request, response);
->>>>>>> Stashed changes
+
 		} catch (UsuarioNoExisteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
