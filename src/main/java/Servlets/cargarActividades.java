@@ -33,7 +33,20 @@ public class cargarActividades extends HttpServlet {
         try {
 			request.setAttribute("listaAct", iconAct.listarTodas());
 			request.setAttribute("tipoUsuario", iconUsr.verInfoUsuario(sessionUsername));
-			request.getRequestDispatcher("/agregarClase.jsp").forward(request, response);
+			String referer = request.getHeader("referer"); // URL de la página anterior
+
+			if (referer.contains("agregarClase.jsp")) {
+			    
+			    request.getRequestDispatcher("agregarClase.jsp").forward(request, response);
+			} else if (referer.contains("consultaClase")) {
+			    
+			    request.getRequestDispatcher("consultaClase.jsp").forward(request, response);
+			} else {
+			    
+			    System.out.println("ROMPISTE TODO QUEDASTE EN EL ELSE DE CARGAR ACTIVIDADES");
+			    
+			}
+			
 		} catch (ActividadNoExisteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

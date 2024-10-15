@@ -18,8 +18,11 @@
 			<li class="nav-item"><a class="nav-link" href="agregarActividad.jsp">Agregar Actividad</a></li>
 			<li class="nav-item"><a class="nav-link" href="agregarClase.jsp">Agregar Clase</a></li>
 			<li class="nav-item"><a class="nav-link" href="consultas.jsp">Consultas</a></li>
+			<li class="nav-item"><a class="nav-link" href="consultaActividad.jsp">Consultar Actividad</a></li>
+			<li class="nav-item"><a class="nav-link" href="consultaClase.jsp">Consultar Clase</a></li>
 			<li class="nav-item"><a class="nav-link" href="logout.jsp">Cerrar Sesion</a></li>
 			<li class="nav-item"><a class="nav-link" href="perfil.jsp">Mi perfil</a></li>
+			
 			</c:when>
 			</c:choose>
 			
