@@ -29,7 +29,7 @@ public class AgregarActividad extends HttpServlet {
         IControladorActividad iconAct = fabrica.getIControladorActividad();
         IControladorUsuario iconUsr = fabrica.getIControladorUsuario();
 
-     // obtener datos
+       
        String nombre = request.getParameter("nombre");
        String descripcion = request.getParameter("descripcion");
        int duracion = Integer.parseInt(request.getParameter("duracion"));

@@ -38,6 +38,7 @@
             </div>
         </div>
 
+        <!-- Primer Formulario -->
         <div class="row justify-content-center form-section">
             <div class="col-md-6">
                 <form action="perfil" method="post" class="text-center">
@@ -45,30 +46,63 @@
                         <button type="submit" name="botonCargar" class="btn btn-primary btn-block">Cargar mis datos</button>
                     </div>
                 </form>
-                 <div class="form-group">
-       			 	<form action="PerfilModificado" method="post" class="text-center">
-       			 	<div class="row justify-content-center form-section">
-	            		<div class="col-12 text-center">
-			                <h2>Datos de usuario</h2>
-			                <label>Nombre:</label>
-			                <input type="text" name="nombre" class="form-control" id="nombre" value="${nombre != null ? nombre : ''}">
-			                <label>Apellido:</label>
-			                <input type="text" name="apellido" class="form-control" id="apellido" value="${apellido != null ? apellido : ''}">
-			                <label>Nickname:</label>
-			                <input type="text" name="nickname" class="form-control" id="nickname" value="${nickname != null ? nickname : ''}">
-			                <label>Email:</label>
-			                <input type="email" name="email" class="form-control" id="email" value="${email != null ? email : ''}">
-			                <label>Fecha de Nacimiento:</label>
-			                <input type="text" name="fecha" class="form-control" id="fecha" value="${fecha != null ? fecha : ''}">
-	            		</div>
-       			 	</div>         
-                        <button type="submit" id="botonGuardar" name="botonGuardar"class="btn btn-primary btn-block">Guardar mis datos</button>
-                    </form>    
-                 </div>     
+                <div class="form-group">
+                    <form action="PerfilModificado" method="post" class="text-center">
+                        <div class="row justify-content-center form-section">
+                            <div class="col-12 text-center">
+                                <h2>Datos de usuario</h2>
+                                <div class="form-row">
+                                    <!-- Campo Nombre -->
+                                    <div class="col-md-6">
+                                        <label>Nombre:</label>
+                                        <input type="text" name="nombre" class="form-control" id="nombre" value="${nombre != null ? nombre : ''}">
+                                    </div>
+                                    <!-- Campo Apellido -->
+                                    <div class="col-md-6">
+                                        <label>Apellido:</label>
+                                        <input type="text" name="apellido" class="form-control" id="apellido" value="${apellido != null ? apellido : ''}">
+                                    </div>
+                                </div>
+                                <label>Nickname:</label>
+                                <input type="text" name="nickname" class="form-control" id="nickname" value="${nickname != null ? nickname : ''}">
+                                <label>Email:</label>
+                                <input type="email" name="email" class="form-control" id="email" value="${email != null ? email : ''}">
+                                <label>Fecha de Nacimiento:</label>
+                                <input type="text" name="fecha" class="form-control" id="fecha" value="${fecha != null ? fecha : ''}">
+                            </div>
+                        </div>
+                        <button type="submit" id="botonGuardar" name="botonGuardar" class="btn btn-primary btn-block">Guardar mis datos</button>
+                    </form>
+                </div>
             </div>
         </div>
 
-        <p id="prueba">asdasd</p>
+        <!-- Segundo Formulario -->
+        <div class="row justify-content-center form-section">
+            <div class="col-md-6">
+                <form action="PerfilModificado" method="post" class="text-center">
+                    <div class="row justify-content-center form-section">
+                        <div class="col-12 text-center">
+                            <h2>Actualizar Nombre y Apellido</h2>
+                            <div class="form-row">
+                                <!-- Campo Nuevo Nombre -->
+                                <div class="col-md-6">
+                                    <label>Nuevo Nombre:</label>
+                                    <input type="text" name="nuevoNombre" class="form-control" id="nuevoNombre" value="${nuevoNombre != null ? nuevoNombre : ''}">
+                                </div>
+                                <!-- Campo Nuevo Apellido -->
+                                <div class="col-md-6">
+                                    <label>Nuevo Apellido:</label>
+                                    <input type="text" name="nuevoApellido" class="form-control" id="nuevoApellido" value="${nuevoApellido != null ? nuevoApellido : ''}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" id="botonGuardarNuevo" name="botonGuardarNuevo" class="btn btn-secondary btn-block">Guardar Nuevo Nombre y Apellido</button>
+                </form>
+            </div>
+        </div>
+
 
         <div class="row justify-content-center">
             <div class="col-md-6" id="contenedorElementos">
@@ -95,7 +129,6 @@
     cajaNickname.readOnly = true;
     cajaEmail.readOnly = true;
     cajaFecha.readOnly = true;
-    //cajaFecha.textContent = fecha.slice(0, -18);
     var prueba = document.getElementById("prueba").innerHTML;
     console.log(prueba);
     var botonGuardar = document.getElementById("botonGuardar");
