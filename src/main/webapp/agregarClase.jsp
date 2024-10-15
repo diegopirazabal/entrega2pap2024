@@ -26,6 +26,7 @@
             </div>
 	   <br>
 		<button type="submit" class="btn btn-primary">Cargar Actividades</button>
+		<button type="button" id="boton" class="btn btn-primary">Cargar Actividades</button>
 		<br>
 		<br>
       </form>
@@ -65,8 +66,8 @@
  </body>  
  
  	<script>	
-		 	//var boton = document.getElementById("boton");
-			//boton.addEventListener("click", mostrarElementos);
+		 	var boton = document.getElementById("boton");
+			boton.addEventListener("click", mostrarElementos);
 			mostrarElementos();
 			function mostrarElementos() {
 			    // Obtén el valor seleccionado del combo box
