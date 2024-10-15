@@ -17,7 +17,7 @@
 
 <body>
 
-<div class="text-center">
+<div class="text-center" >
  <h1>Agregar Clase</h1>
 	<form action="cargarActividades" method="post">
 		  <!-- Contenedor para los elementos dinámicos -->
@@ -65,8 +65,8 @@
  </body>  
  
  	<script>	
-		 	var boton = document.getElementById("boton");
-			boton.addEventListener("click", mostrarElementos);
+		 	//var boton = document.getElementById("boton");
+			//boton.addEventListener("click", mostrarElementos);
 			mostrarElementos();
 			function mostrarElementos() {
 			    // Obtén el valor seleccionado del combo box
@@ -89,8 +89,7 @@
 			        cajaActividades.name = "actividades"; 
 			        contenedor.appendChild(labelActividades);
 			        contenedor.appendChild(cajaActividades);
-			        
-			        
+			        "
 			        // Obtén las opciones del párrafo y elimina los corchetes
 			        var textoActividades = document.getElementById("listaAct").innerHTML;
 			        var opcionesTexto = textoActividades.replace(/^\[|\]$/g, ''); // Elimina [ y ]
