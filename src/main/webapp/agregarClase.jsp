@@ -25,7 +25,7 @@
                <!-- Aquí se mostrarán los elementos dinámicos -->
             </div>
 	   <br>
-		<button type="submit" id="boton" class="btn btn-primary">Cargar Actividades</button>
+		<button type="submit" class="btn btn-primary">Cargar Actividades</button>
 		<br>
 		<br>
       </form>
@@ -67,6 +67,7 @@
  	<script>	
 		 	var boton = document.getElementById("boton");
 			boton.addEventListener("click", mostrarElementos);
+			mostrarElementos();
 			function mostrarElementos() {
 			    // Obtén el valor seleccionado del combo box
 			    var seleccion = document.getElementById("idTipo").innerHTML;

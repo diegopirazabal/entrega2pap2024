@@ -16,6 +16,7 @@
 			<c:when test="${not empty sessionScope.estado_sesion}">
 			<li class="nav-item"><a class="nav-link" href="agregarUsuario.jsp">Agregar Usuario</a></li>
 			<li class="nav-item"><a class="nav-link" href="agregarActividad.jsp">Agregar Actividad</a></li>
+			<li class="nav-item"><a class="nav-link" href="agregarClase.jsp">Agregar Clase</a></li>
 			<li class="nav-item"><a class="nav-link" href="consultas.jsp">Consultas</a></li>
 			<li class="nav-item"><a class="nav-link" href="logout.jsp">Cerrar Sesion</a></li>
 			<li class="nav-item"><a class="nav-link" href="perfil.jsp">Mi perfil</a></li>
