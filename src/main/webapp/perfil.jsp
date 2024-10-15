@@ -42,31 +42,33 @@
             <div class="col-md-6">
                 <form action="perfil" method="post" class="text-center">
                     <div class="form-group">         
-                        <button type="submit" class="btn btn-primary btn-block">Cargar mis datos</button>
+                        <button type="submit" name="botonCargar" class="btn btn-primary btn-block">Cargar mis datos</button>
                     </div>
-                    <div class="row justify-content-center form-section">
-            	<div class="col-12 text-center">
-	                <h2>Datos de usuario</h2>
-	                <label>Nombre:</label>
-	                <input type="text" name="nombre" class="form-control" id="nombre" value="${nombre != null ? nombre : ''}">
-	                <label>Apellido:</label>
-	                <input type="text" name="apellido" class="form-control" id="apellido" value="${apellido != null ? apellido : ''}">
-	                <label>Nickname:</label>
-	                <input type="text" name="nickname" class="form-control" id="nickname" value="${nickname != null ? nickname : ''}">
-	                <label>Email:</label>
-	                <input type="email" name="email" class="form-control" id="email" value="${email != null ? email : ''}">
-	                <label>Fecha de Nacimiento:</label>
-	                <input type="text" name="fecha" class="form-control" id="fecha" value="${fecha != null ? fecha : ''}">
-            		</div>
-       			 </div>
-       			 <div class="form-group">         
-                        <button type="button" id="botonGuardar" class="btn btn-primary btn-block">Guardar mis datos</button>
-                 </div>        
                 </form>
+                 <div class="form-group">
+       			 	<form action="PerfilModificado" method="post" class="text-center">
+       			 	<div class="row justify-content-center form-section">
+	            		<div class="col-12 text-center">
+			                <h2>Datos de usuario</h2>
+			                <label>Nombre:</label>
+			                <input type="text" name="nombre" class="form-control" id="nombre" value="${nombre != null ? nombre : ''}">
+			                <label>Apellido:</label>
+			                <input type="text" name="apellido" class="form-control" id="apellido" value="${apellido != null ? apellido : ''}">
+			                <label>Nickname:</label>
+			                <input type="text" name="nickname" class="form-control" id="nickname" value="${nickname != null ? nickname : ''}">
+			                <label>Email:</label>
+			                <input type="email" name="email" class="form-control" id="email" value="${email != null ? email : ''}">
+			                <label>Fecha de Nacimiento:</label>
+			                <input type="text" name="fecha" class="form-control" id="fecha" value="${fecha != null ? fecha : ''}">
+	            		</div>
+       			 	</div>         
+                        <button type="submit" id="botonGuardar" name="botonGuardar"class="btn btn-primary btn-block">Guardar mis datos</button>
+                    </form>    
+                 </div>     
             </div>
         </div>
 
-        <p id="prueba"></p>
+        <p id="prueba">asdasd</p>
 
         <div class="row justify-content-center">
             <div class="col-md-6" id="contenedorElementos">
@@ -97,8 +99,5 @@
     var prueba = document.getElementById("prueba").innerHTML;
     console.log(prueba);
     var botonGuardar = document.getElementById("botonGuardar");
-    botonGuardar.addEventListener("click", function() {
-        
-    });
 </script>
 </html>
