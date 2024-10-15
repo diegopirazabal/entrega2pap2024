@@ -61,9 +61,9 @@ public class Perfil extends HttpServlet {
 			String apellido = request.getParameter("apellido");
 			System.out.println("El nombre nuevo en AAAPerfil es: " + nombre);
 			//icon.editarNombreApellido(sessionUsername, nombre, apellido);
-			aux = icon.verInfoUsuario(sessionUsername);
-			System.out.println("El usuario modificado es: " + aux.getNombre() + " " + aux.getApellido());
-			request.getRequestDispatcher("/PerfilModificado.jsp").forward(request, response);
+			//aux = icon.verInfoUsuario(sessionUsername);
+			//System.out.println("El usuario modificado es: " + aux.getNombre() + " " + aux.getApellido());
+			//request.getRequestDispatcher("/PerfilModificado.jsp").forward(request, response);
 		} catch (UsuarioNoExisteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
