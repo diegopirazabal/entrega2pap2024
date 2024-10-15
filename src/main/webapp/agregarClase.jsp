@@ -48,6 +48,7 @@
 
 	   <br>
 		<button type="submit" class="btn btn-primary">Agregar Clase</button>
+		<button type="button" id="boton" class="btn btn-primary">Cargar Actividades</button>
       </form>
       
       	<br><br><br>
@@ -63,26 +64,13 @@
    
  </body>  
  
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-		crossorigin="anonymous"></script>
-		
-	<script>
-			var boton = document.getElementById("boton");
+ 	<script>	
+		 	var boton = document.getElementById("boton");
 			boton.addEventListener("click", mostrarElementos);
-			
 			function mostrarElementos() {
 			    // Obtén el valor seleccionado del combo box
 			    var seleccion = document.getElementById("idTipo").innerHTML;
-			    console.log(seleccion);
+			    console.log("console");
 			    
 			    // Obtén el contenedor donde se mostrarán los elementos dinámicos
 			    var contenedor = document.getElementById("contenedorElementos");
@@ -110,17 +98,31 @@
 			        
 			        // Recorrer el array de actividades y crear las opciones dinámicamente
 			        opciones.forEach(function(actividad) {
-			            var opcion = document.createElement("option");
-			            opcion.value = actividad.trim(); // Asigna el valor y elimina espacios en blanco
-			            opcion.textContent = actividad.trim(); // El texto visible para la opción
-			            cajaActividades.appendChild(opcion); // Agrega la opción al select
+			        var opcion = document.createElement("option");
+			        opcion.value = actividad.trim(); // Asigna el valor y elimina espacios en blanco
+			        opcion.textContent = actividad.trim(); // El texto visible para la opción
+			        cajaActividades.appendChild(opcion); // Agrega la opción al select
 			        });
 			
-				        
+				 
 			    //} else if (seleccion === "Deportista") {
 			 
 			//}
 			}
 			</script>
+ 
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+		
+	
 
 </html>
