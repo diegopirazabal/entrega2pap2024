@@ -18,23 +18,25 @@ import logica.IControladorUsuario;
 @WebServlet("/AgregarUsuario")
 public class AgregarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	
+
+
 	public AgregarUsuario() {
         super();
     }
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			   	
+
 		// llamar a metodo de el package modelo, eso seria lo correcto para seguir MVC, patron de diseño
 		System.out.println("voy a AGREGAR");
 		Fabrica fabrica = Fabrica.getInstance();
 		IControladorUsuario icon = fabrica.getIControladorUsuario();
-				
+
 		String nickname = request.getParameter("nickUsuario");
 		String nombre = request.getParameter("nombreUsuario");
 		String apellido = request.getParameter("apellidoUsuario");
@@ -46,7 +48,7 @@ public class AgregarUsuario extends HttpServlet {
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		}
 		String contrasena = request.getParameter("passUsuario");
 		String contrasena2 = request.getParameter("passUsuario2");//para comparar
 		String disciplina = request.getParameter("disciplina");
@@ -57,7 +59,7 @@ public class AgregarUsuario extends HttpServlet {
 		Boolean esEntrenador;
 		System.out.println("\nEl valor del checkbox que traigo es: " + esProfesional);
 		if(contrasena.equals(contrasena2)) {
-			
+
 			try {
 			if (request.getParameter("opciones").equals("deportista")) {
 				esProfesional = request.getParameter("esProfesional");
@@ -68,7 +70,7 @@ public class AgregarUsuario extends HttpServlet {
 				esEntrenador = false;
 				icon.crearDeportista(nickname, nombre, apellido, email, fechaNac, esEntrenador, contrasena, esProfesional1);
 			}else if(request.getParameter("opciones").equals("entrenador")) {
-				
+
 				esEntrenador = true;
 				icon.crearEntrenador(nickname, nombre, apellido, email, fechaNac, esEntrenador, contrasena, disciplina, sitioweb);
 			}

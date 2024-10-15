@@ -12,11 +12,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import logica.Entrenador;
 import logica.Fabrica;
 import logica.IControladorActividad;
 import logica.IControladorUsuario;
-import logica.Usuario;
 
 @WebServlet("/AgregarActividad")
 public class AgregarActividad extends HttpServlet {
@@ -25,7 +23,8 @@ public class AgregarActividad extends HttpServlet {
     public AgregarActividad() {
         super();
     }
-	   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	   @Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Fabrica fabrica = Fabrica.getInstance();
         IControladorActividad iconAct = fabrica.getIControladorActividad();
         IControladorUsuario iconUsr = fabrica.getIControladorUsuario();
@@ -33,23 +32,23 @@ public class AgregarActividad extends HttpServlet {
      // obtener datos
        String nombre = request.getParameter("nombre");
        String descripcion = request.getParameter("descripcion");
-       int duracion = Integer.parseInt(request.getParameter("duracion"));  
+       int duracion = Integer.parseInt(request.getParameter("duracion"));
        double costo = Double.parseDouble(request.getParameter("costo"));
        String lugar = request.getParameter("lugar");
-       String entrenador = request.getParameter("entrenador"); 
+       String entrenador = request.getParameter("entrenador");
        //opcional
        String imagen = null;
-       
+
        try {
            if (iconUsr.consultarUsuario(entrenador) == null) {
                request.setAttribute("error", "El entrenador no existe.");
                request.getRequestDispatcher("/inicioErroneo.jsp").forward(request, response);
            }
-           
+
            LocalDate fechaAlta = LocalDate.now();  // Fecha actual
            iconAct.crearActividad(nombre, descripcion, duracion, costo, lugar, Date.valueOf(fechaAlta), imagen, entrenador);
            request.getRequestDispatcher("/index.jsp").forward(request, response);
-           
+
        } catch (ActividadRepetidaException e) {
            request.setAttribute("error", "Ya existe una actividad con ese nombre.");
            System.out.println("Actividad ya existente.");
@@ -59,9 +58,9 @@ public class AgregarActividad extends HttpServlet {
            request.setAttribute("entrenador", entrenador);
            request.setAttribute("lugar", lugar);
            request.getRequestDispatcher("/agregarActividad.jsp").forward(request, response);
-           
-           
-           
+
+
+
        } catch (UsuarioNoExisteException e) {
            request.setAttribute("error", "Entrenador no encontrado.");
            request.getRequestDispatcher("/inicioErroneo.jsp").forward(request, response);

@@ -21,7 +21,7 @@ import logica.IControladorUsuario;
 @WebServlet ("/PerfilModificado")
 public class PerfilModificado extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -29,9 +29,10 @@ public class PerfilModificado extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-    
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-    	
+
+    @Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     	HttpSession session = request.getSession();
     	Fabrica fabrica = Fabrica.getInstance();
     	IControladorUsuario icon = fabrica.getIControladorUsuario();
@@ -41,13 +42,13 @@ public class PerfilModificado extends HttpServlet {
         String sessionUsername = parts[0].trim(); // "carlos"
         String sessionFullName = parts[1].trim();  // "Carlos Tevez"
 		dataTypeUsuario aux;
-		
-		
+
+
 		try {
 			aux = icon.verInfoUsuario(sessionUsername);
 			String nombre = request.getParameter("nombre");
 //			String apellido = (String) request.getAttribute("apellido");
-			System.out.println("El nombre nuevo es: " + nombre);
+			//System.out.println("El nombre nuevo es: " + nombre);
 //			icon.editarNombreApellido(sessionUsername, nombre, apellido);
 //			aux = icon.verInfoUsuario(sessionUsername);
 			System.out.println("El usuario modificado en modificado es: " + aux.getNombre() + " " + aux.getApellido());
@@ -64,7 +65,7 @@ public class PerfilModificado extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
+
 	}
 }

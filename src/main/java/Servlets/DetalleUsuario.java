@@ -33,16 +33,17 @@ public class DetalleUsuario extends HttpServlet {
 		super();
 	}
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession objSesion = request.getSession();
 		Object logueado = objSesion.getAttribute("usuario_logueado");
 		String x = logueado.toString();
 		String[] parts = x.split(" - ");
-        
+
         // Acceder a las partes
         String sessionUsername = parts[0].trim(); // "carlos"
         String sessionFullName = parts[1].trim();  // "Carlos Tevez"
-        
+
         // Imprimir los resultados
         //System.out.println("Username: " + sessionUsername);
         //System.out.println("Full Name: " + sessionFullName);
@@ -80,7 +81,7 @@ public class DetalleUsuario extends HttpServlet {
 
 					// Ahora clasesRelacionadas contiene todas las clases relacionadas con las actividades del entrenador
 
-					
+
 					request.setAttribute("disciplina", actividadesDelEntrenador);
 					request.setAttribute("auxiliar", clasesRelacionadas);
 					request.setAttribute("tipoUsuario", "Entrenador");
@@ -125,7 +126,7 @@ public class DetalleUsuario extends HttpServlet {
 					    Clase claseAsociada = inscripcion.getClase();
 					    Actividad actividadDeLaClase = claseAsociada.getActividad();
 					    double costoActividad = actividadDeLaClase.getCosto();
-					    
+
 					    // Agrega el costo a la lista de costos
 					    listaCostos.add(costoActividad);
 					}

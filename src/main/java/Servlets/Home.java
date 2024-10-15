@@ -1,13 +1,13 @@
 package Servlets;
 
 import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
 import modelo.EstadoSesion;
 
 /**
@@ -16,7 +16,7 @@ import modelo.EstadoSesion;
 @WebServlet ("/home")
 public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -26,8 +26,8 @@ public class Home extends HttpServlet {
     }
 
     /**
-	 * inicializa la sesión si no estaba creada 
-	 * @param request 
+	 * inicializa la sesión si no estaba creada
+	 * @param request
 	 */
 	public static void initSession(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -38,11 +38,11 @@ public class Home extends HttpServlet {
 			session.setAttribute("estado_sesion", EstadoSesion.NO_LOGIN);  //Seteo si esta o no logeado
 		}
 	}
-	
+
 	/**
 	 * Devuelve el estado de la sesión
 	 * @param request
-	 * @return 
+	 * @return
 	 */
 	public static EstadoSesion getEstado(HttpServletRequest request)
 	{
@@ -51,7 +51,7 @@ public class Home extends HttpServlet {
 
 	private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		initSession(req);
-		
+
 		switch(getEstado(req)){    // el metodo getEstado de arriba duevuelve lo que hay en EstadoSesion
 			case NO_LOGIN:
 				// hace que se ejecute el jsp sin cambiar la url   ACA MANDA UNA JSP
@@ -67,10 +67,11 @@ public class Home extends HttpServlet {
 				break;
 		}
 	}
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
 	}
@@ -78,6 +79,7 @@ public class Home extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
 	}
