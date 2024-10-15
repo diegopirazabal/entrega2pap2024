@@ -19,9 +19,18 @@
 
 <div class="text-center">
  <h1>Agregar Clase</h1>
-	<form action="AgregarClase" method="post">
-		
-		<div class="form-group">
+	<form action="cargarActividades" method="post">
+		  <!-- Contenedor para los elementos dinámicos -->
+            <div class="input-group-prepend" id="contenedorElementos">
+               <!-- Aquí se mostrarán los elementos dinámicos -->
+            </div>
+	   <br>
+		<button type="submit" id="boton" class="btn btn-primary">Cargar Actividades</button>
+		<br>
+		<br>
+      </form>
+      <form action="agregarClase" method="post">
+      <div class="form-group">
 			<label for="exampleInputPassword1">Nombre:</label> <input type="text" name="nombre" style="width: 600px class="form-control" id="exampleInputPassword1"
 				placeholder="Ingrese un nombre ">
 		</div>
@@ -40,17 +49,8 @@
 		<div class="form-group">
 			<label for="exampleInputPassword1">Lugar:</label> <input type="text" name="lugar" style="width: 600px class="form-control" id="exampleInputPassword1" placeholder="Ingrese un lugar">
 		</div>
-		
-		  <!-- Contenedor para los elementos dinámicos -->
-            <div class="input-group-prepend" id="contenedorElementos">
-               <!-- Aquí se mostrarán los elementos dinámicos -->
-            </div>
-
-	   <br>
-		<button type="submit" class="btn btn-primary">Agregar Clase</button>
-		<button type="button" id="boton" class="btn btn-primary">Cargar Actividades</button>
+      	<button type="submit" class="btn btn-primary">Agregar Clase</button>
       </form>
-      
       	<br><br><br>
       	<p>${nombre}</p>
 	    <p>${apellido}</p>
