@@ -26,22 +26,29 @@
   System.out.println("Tomcat Base: " + catalinaBase);
   %>
 
-	<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2000">
+	<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2000"style="margin: 40px;">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class="d-block w-100" style="max-width: 50%; height: auto; margin: 0 auto;" src="imagenes/img1.jpg" alt="First slide"  >
+				<img class="d-block w-100" style="max-width: 50%; height: 500px; margin: 0 auto; object-fit: cover; border-radius: 20px;" src="imagenes/img1.jpg" alt="First slide"  >
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" style="max-width: 50%; height: auto; margin: 0 auto;" src="imagenes/img2.jpg" alt="Second slide">
+				<img class="d-block w-100" style="max-width: 50%; height: 500px; margin: 0 auto; object-fit: cover; border-radius: 20px;" src="imagenes/img2.jpg" alt="Second slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" style="max-width: 50%; height: auto; margin: 0 auto;" src="imagenes/img3.jpg" alt="Third slide">
+				<img class="d-block w-100" style="max-width: 50%; height: 500px; margin: 0 auto; object-fit: cover; border-radius: 20px;" src="imagenes/img3.jpg" alt="Third slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" style="max-width: 50%; height: auto; margin: 0 auto;" src="imagenes/img4.jpg" alt="Third slide">
+				<img class="d-block w-100" style="max-width: 50%; height: 500px; margin: 0 auto; object-fit: cover; border-radius: 20px;" src="imagenes/img4.jpg" alt="Third slide">
 			</div>
 		</div>
 	</div>
+	
+	
+	<div class = "footer">
+	<jsp:include page="/footer.jsp"/>
+	</div>
+	  
+
 
 <!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -32,50 +32,49 @@
 <body>
    <jsp:include page="/head.jsp"/>
 	
+<div class = "contenedor"> 
 	<form action="cargarActividades" method="post">
  		<button type="submit" class="btn btn-primary">Cargar Actividades</button>
  	</form>
 	
-	<div class="d-flex justify-content-center">
+	<div>
 	<!-- El stilo para que quede uno abaja del otro los form -->
-	<form action="ConsultaClase" method="post" style="display: block; margin-bottom: 20px;">
+	<form action="ConsultaClase" method="post" style="display: block; margin-bottom: 20px; margin-top: 20px;">
 	   <div class="form-group">
 			<label for="actividadesList">Selecciona una actividad:</label>
                    <select id="actividadesList" name="actividades" onchange="mostrarElementos()" class="form-control">
                    
             		</select>
-            		 <button type="submit" class="btn btn-primary">Cargar Clases</button>
+            		 <button type="submit" class="btn btn-primary" style = "margin-top: 20px;">Cargar Clases</button>
 		</div>		
 	</form>
 	</div>
    
-	<div class="d-flex justify-content-center">	
+	<div class="">	
 	<form action="DetalleClase" method="post" style="display: block; margin-bottom: 20px;">
 		
 	    <p id="listaAct">${listaAct}</p>
 	    <p id="listaCla">${listCla}</p>
 
-	    <div class="input-group-prepend" id="contenedorElementos">      
+	    <div class="input-group-prepend" id="contenedorElementos" style ="margin: 20px;">      
 	
 		</div>
 	
 		<div class="input-group-prepend" id="contenedorElementos2">      
 		
-		</div>
-		<div class="input-group-prepend">      
-			<div class="">
+		</div>   
+
             <label for="nombreClase2" class="col-sm-2 col-form-label">Nombre:</label> 
             <div class="">
                 <input type="text" name="nombreClase2" class="form-control" id="nombreClase2" readonly="readonly" value="${nombreClase}">
             </div>
             
-            <div class="">
             <label for="fechaClase" class="col-sm-2 col-form-label">Fecha:</label> 
             <div class="">
                 <input type="text" name="fechaClase" class="form-control" id="fechaClase" readonly="readonly" value="${fechaClase}">
             </div>
             
-            <div class="">
+
             <label for="horaClase" class="col-sm-2 col-form-label">Hora:</label> 
             <div class="">
                 <input type="text" name="horaClase" class="form-control" id="horaClase" readonly="readonly" value="${horaClase}">
@@ -94,15 +93,10 @@
             </div>
         </div>
 		</div>
-		<button type="submit">MOSTRARDETALLES</button>
-	</form>
-	 
-	 <br>
-	 <br>
-	 </div>
-	 <div class="d-flex justify-content-center">
-	    
-	 </div>	
+		<button type="submit" class="btn btn-primary" style="margin-top: 20px">Mostrar detalles</button>
+	</form>    
+</div>	
+</div>	
 
 </body>
 <script>

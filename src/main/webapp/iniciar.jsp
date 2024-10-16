@@ -11,24 +11,20 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<!-- Referencia hora de estilo Bootstrap 4 CSS -->
+	
+	<link rel="stylesheet" type="text/css" href="styles/main.css">
+	
 
 <title>Homepage</title>
 
-<!-- referencia al CSS maestro -->
-<link rel="stylesheet" type="text/css" href="styles/main.css">
+
 
 </head>
 
     <body>
       <jsp:include page="/head.jsp"/>
 
-	<!-- ejemplo de estilo CSS enbebido en la página -->
-	<style type="text/css">
-	.input_blur {
-		font-style: italic;
-		color:#808080;
-	}
-	</style>
+
 
 	<script type="text/javascript">
 		/// saca el blur a un elemento y lo resetea
@@ -56,7 +52,9 @@
 		</div>
 	</div>
 
+	
  
 	
 </body>
+
 </html>

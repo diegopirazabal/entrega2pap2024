@@ -20,10 +20,12 @@
 	}
 </style>
 <body>
+
 <jsp:include page="/head.jsp"/>
-<div class="text-center" >
- <h1>Agregar Clase</h1>
- 		<form action="cargarActividades" method="post">
+
+<div class="contenedorAgregarClase" >
+ <h1 class = "text-center">Agregar Clase</h1>
+ 		<form action="cargarActividades" method="post" class = "text-center">
  		<button type="submit" class="btn btn-primary">Cargar Actividades</button>
  		</form>
  <br>
@@ -59,9 +61,10 @@
 	    <p id="idTipo">${tipoUsuario}</p>
 	    <p id="listaAct">${listaAct}</p>
 
-    <jsp:include page="/footer.jsp"/>
+    
     </div>  
-   
+    
+
  </body>  
  
  	<script>	

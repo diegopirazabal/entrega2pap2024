@@ -63,8 +63,8 @@ function mostrarElementos() {
 	 <jsp:include page="/head.jsp"/>
 	
   
-	 <div class="text-center">
-	    <h1>Agregar Usuario</h1>
+	 <div class="contenedorAgregarClase text-center">
+	    <h1 class="text-center">Agregar Usuario</h1>
 	 
 	     <form action="AgregarUsuario" method="post">
 	      
@@ -123,15 +123,12 @@ function mostrarElementos() {
                
             </div>
         
-         <br>
 		<button type="submit" class="btn btn-primary">Agregar Usuario</button>
 		
 	   </form>
+
 	
-	<br><br><br>
 	
-	
-    <jsp:include page="/footer.jsp"/>
     
     
    </div>

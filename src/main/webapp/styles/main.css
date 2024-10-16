@@ -22,15 +22,37 @@
 }
 
 
-body{
-    background: none repeat scroll 0 0 rgb(0, 255, 255);
-    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
-    margin: 0;
+html, body {
+    background: linear-gradient(to top, #1e3c72, #2a5298, #6f86d6);
+    font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
+    	
+    height: 100%;
 }
 
+
 h1 {
-    font-size: 40px
+	color : #FFFFFF;
+    font-size: 40px;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
+
+h2{
+	color : #FFFFFF;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+
+label{
+	color : #FFFFFF;
+}
+
+input{
+	margin: 10px;
+}
+
 
 /* Cabezal */
 
@@ -86,15 +108,66 @@ h1 {
 	text-shadow: 0px 0px 2px white;
 }
 
+
+/* BARRA NAVEGACION */
+.navbar-brand {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.1);
+}
+
+nav.navbar {
+    background-color: #f8f9fa; /* Fondo gris claro */
+    padding: 15px; /* Espaciado interno */
+    border-bottom: 2px solid #ccc; /* Borde inferior */
+    border-radius: .5rem;
+}
+
+/* Estilo para la lista de navegación */
+ul.nav-list {
+    list-style: none; /* Eliminar viñetas */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Mostrar elementos en línea */
+    justify-content: space-around; /* Distribuir elementos de manera uniforme */
+}
+
+/* Estilo para cada elemento de la lista */
+li.nav-item {
+    margin: 0 10px;
+}
+
+/* Estilo para los enlaces de la barra de navegación */
+a.nav-link {
+    color: #007bff; /* Color azul */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 16px;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+    
+}
+
+a.nav-link:hover {
+    color: #0056b3; /* Azul más oscuro al pasar el cursor */
+    transform: scale(1.1);
+
+}
+
+
 /* footer */
 
-#footer
-{
-    background: url("/imagenes/day_hills_top.png") repeat-x scroll 0 0 rgb(255, 255, 128);
+.footer {
+    background: #103F77, url("/imagenes/day_hills_top.png") no-repeat center; 
     color: #FFFFFF;
     font-size: 0.9em;
-    height: 69px;
-    padding-top: 66px;
+    padding: 20px; 
+    bottom: 0;
+    position: relative;
+    margin: 10px;
+
 }
 
 #footer_copyright
@@ -106,10 +179,7 @@ h1 {
     float:right;
 }
 
-#footer div
-{
-	margin: 3px 10px;
-}
+
 
 /* general */
 
@@ -123,7 +193,7 @@ h1 {
 .main
 {
     background: none repeat scroll 0 0 rgba(255, 255, 255, 0.93);
-	  border: 1px solid #CCCCCC;
+	 border: 1px solid #CCCCCC;
     margin: 0 auto;
     width: 80%;
 	border-radius: 30px 30px 30px 30px;
@@ -131,12 +201,35 @@ h1 {
     padding: 30px;
 }
 
+/* CONTENEDOR GENERAL */
+.contenedor{
+	padding: 20px;
+	margin: 20px;
+	background-color: rgba(0,0,0, .3);
+	border-radius: 30px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+
+}
+
+/* AGREGAR CLASE*/
+.contenedorAgregarClase{
+	
+	padding: 20px;
+	margin: 20px;
+	background-color: rgba(0,0,0, .3);
+	border-radius: 30px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+
+}
 /* iniciar */
 
 .contenedor_principal
 {
     clear: both;
     padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contenedor_principal .izquierda
