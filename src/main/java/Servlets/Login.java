@@ -80,7 +80,7 @@ public class Login extends HttpServlet {
 
 		// redirige a la página principal para que luego rediriga a la página que corresponde
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/home");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -63,7 +63,7 @@ public class Home extends HttpServlet {
 				break;
 			case LOGIN_CORRECTO:
 				// manda una redirección a otra URL (cambia la URL) ACA MANDA A OTRO SERVLET
-				req.getRequestDispatcher("/home.jsp").forward(req, resp);
+				req.getRequestDispatcher("/index.jsp").forward(req, resp);
 				break;
 		}
 	}
