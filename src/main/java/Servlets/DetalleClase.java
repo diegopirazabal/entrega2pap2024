@@ -25,37 +25,34 @@ public class DetalleClase extends HttpServlet {
     public DetalleClase() {
         super();
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	Fabrica fabrica = Fabrica.getInstance();
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Fabrica fabrica = Fabrica.getInstance();
         IControladorActividad iconAct = fabrica.getIControladorActividad();
         IControladorUsuario iconUsr = fabrica.getIControladorUsuario();
         IControladorClase iconClase = fabrica.getIcontroladorClase();
         HttpSession session = request.getSession();
-    	Object logueado = session.getAttribute("usuario_logueado");
-		String x = logueado.toString();
-		String[] parts = x.split(" - ");
+        Object logueado = session.getAttribute("usuario_logueado");
+        String x = logueado.toString();
+        String[] parts = x.split(" - ");
         String sessionUsername = parts[0].trim(); // "carlos"
-        String sessionFullName = parts[1].trim();  // "Carlos Tevez"
-        
+        String sessionFullName = parts[1].trim(); // "Carlos Tevez"
+
         String claseSeleccionada = request.getParameter("comboClases");
-        
+
         dataTypeClase aux = iconClase.obtenerClasePorNombre2(claseSeleccionada);
         request.setAttribute("nombreClase", aux.getNombre());
         System.out.println("La fecha que voy a formatear es: " + aux.getFecha());
         Date fecha = aux.getFecha();
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-		String fechaFormateada = sdf.format(fecha);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String fechaFormateada = sdf.format(fecha);
         request.setAttribute("fechaClase", fechaFormateada);
         request.setAttribute("horaClase", aux.getHora());
         request.setAttribute("lugarClase", aux.getLugar());
         request.setAttribute("cuposClase", aux.getCupo());
-		request.getRequestDispatcher("/consultaClase.jsp").forward(request, response);
+        request.getRequestDispatcher("/consultaClase.jsp").forward(request, response);
 
-        
-		
-		
-
-        
     }
-    
+
 }

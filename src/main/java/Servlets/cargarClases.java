@@ -25,28 +25,30 @@ public class cargarClases extends HttpServlet {
     public cargarClases() {
         super();
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	Fabrica fabrica = Fabrica.getInstance();
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Fabrica fabrica = Fabrica.getInstance();
         IControladorActividad iconAct = fabrica.getIControladorActividad();
         IControladorUsuario iconUsr = fabrica.getIControladorUsuario();
         IControladorClase iconCla = fabrica.getIcontroladorClase();
         HttpSession session = request.getSession();
-    	Object logueado = session.getAttribute("usuario_logueado");
-		String x = logueado.toString();
-		String[] parts = x.split(" - ");
+        Object logueado = session.getAttribute("usuario_logueado");
+        String x = logueado.toString();
+        String[] parts = x.split(" - ");
         String sessionUsername = parts[0].trim();
         String actividad = request.getParameter("actividades");
         System.out.println("La actividad que traigo a cargar clases es: " + actividad);
         List<dataTypeClase> aux = null;
-		try {
-			aux = iconCla.listarClasesPorActividad(actividad);
-			request.setAttribute("listaCla", aux);
-			request.getRequestDispatcher("/inscripcion.jsp").forward(request, response);
-		} catch (ClaseNoExisteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+        try {
+            aux = iconCla.listarClasesPorActividad(actividad);
+            request.setAttribute("listaCla", aux);
+            request.getRequestDispatcher("/inscripcion.jsp").forward(request, response);
+        } catch (ClaseNoExisteException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
     }
-    
+
 }

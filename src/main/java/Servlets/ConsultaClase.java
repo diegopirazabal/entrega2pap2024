@@ -23,35 +23,33 @@ public class ConsultaClase extends HttpServlet {
     public ConsultaClase() {
         super();
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	Fabrica fabrica = Fabrica.getInstance();
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Fabrica fabrica = Fabrica.getInstance();
         IControladorActividad iconAct = fabrica.getIControladorActividad();
         IControladorUsuario iconUsr = fabrica.getIControladorUsuario();
         IControladorClase iconClase = fabrica.getIcontroladorClase();
         HttpSession session = request.getSession();
-    	Object logueado = session.getAttribute("usuario_logueado");
-		String x = logueado.toString();
-		String[] parts = x.split(" - ");
+        Object logueado = session.getAttribute("usuario_logueado");
+        String x = logueado.toString();
+        String[] parts = x.split(" - ");
         String sessionUsername = parts[0].trim(); // "carlos"
-        String sessionFullName = parts[1].trim();  // "Carlos Tevez"
-        
+        String sessionFullName = parts[1].trim(); // "Carlos Tevez"
+
         String actividad = request.getParameter("actividades");
 
         List<dataTypeClase> aux = null;
         try {
-			aux = iconClase.listarClasesPorActividad(actividad);
-			request.setAttribute("listCla", aux);
-			request.getRequestDispatcher("/consultaClase.jsp").forward(request, response);
-			
-		} catch (ClaseNoExisteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        
-		
-		
+            aux = iconClase.listarClasesPorActividad(actividad);
+            request.setAttribute("listCla", aux);
+            request.getRequestDispatcher("/consultaClase.jsp").forward(request, response);
 
-        
+        } catch (ClaseNoExisteException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
     }
-    
+
 }

@@ -23,35 +23,36 @@ import logica.IControladorUsuario;
 
 @WebServlet("/AgregarClase")
 public class AgregarClase extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    public AgregarClase() {
-        super();
-    }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	Fabrica fabrica = Fabrica.getInstance();
-        IControladorActividad iconAct = fabrica.getIControladorActividad();
-        IControladorUsuario iconUsr = fabrica.getIControladorUsuario();
-        IControladorClase iconClase = fabrica.getIcontroladorClase();
-        HttpSession session = request.getSession();
-    	Object logueado = session.getAttribute("usuario_logueado");
+	public AgregarClase() {
+		super();
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		Fabrica fabrica = Fabrica.getInstance();
+		IControladorActividad iconAct = fabrica.getIControladorActividad();
+		IControladorUsuario iconUsr = fabrica.getIControladorUsuario();
+		IControladorClase iconClase = fabrica.getIcontroladorClase();
+		HttpSession session = request.getSession();
+		Object logueado = session.getAttribute("usuario_logueado");
 		String x = logueado.toString();
 		String[] parts = x.split(" - ");
-        String sessionUsername = parts[0].trim(); // "carlos"
-        String sessionFullName = parts[1].trim();  // "Carlos Tevez"
+		String sessionUsername = parts[0].trim(); // "carlos"
+		String sessionFullName = parts[1].trim(); // "Carlos Tevez"
 
-        
-        String nombre = request.getParameter("nombre");
-        
-        String actividad = request.getParameter("actividades");
-        Actividad aux = null;
+		String nombre = request.getParameter("nombre");
+
+		String actividad = request.getParameter("actividades");
+		Actividad aux = null;
 		try {
 			aux = iconAct.consultarActividad2(actividad);
 		} catch (ActividadNoExisteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        String fechaNac1 = request.getParameter("fecha");
+		String fechaNac1 = request.getParameter("fecha");
 		Date fechaNac = null;
 		try {
 			fechaNac = new SimpleDateFormat("yyyy-mm-dd").parse(fechaNac1);
@@ -61,9 +62,9 @@ public class AgregarClase extends HttpServlet {
 		}
 		Date fechaAlta = new Date();
 		String hora = request.getParameter("hora");
-		
+
 		String cupoStr = request.getParameter("cupos"); // Obtener el valor como String
-		int cupo = Integer.parseInt(cupoStr);  
+		int cupo = Integer.parseInt(cupoStr);
 		String img = "";
 		String lugar = request.getParameter("lugar");
 		try {
@@ -72,8 +73,8 @@ public class AgregarClase extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-        request.getRequestDispatcher("/agregarClase.jsp").forward(request, response);
-    }
-    
+
+		request.getRequestDispatcher("/agregarClase.jsp").forward(request, response);
+	}
+
 }

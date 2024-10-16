@@ -20,24 +20,26 @@ import logica.IControladorUsuario;
 
 @WebServlet("/cargarClasesActividad")
 public class cargarClasesActividad extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    public cargarClasesActividad() {
-        super();
-    }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	Fabrica fabrica = Fabrica.getInstance();
-        IControladorActividad iconAct = fabrica.getIControladorActividad();
-        IControladorUsuario iconUsr = fabrica.getIControladorUsuario();
-        IControladorClase iconCla = fabrica.getIcontroladorClase();
-        HttpSession session = request.getSession();
-    	Object logueado = session.getAttribute("usuario_logueado");
+	public cargarClasesActividad() {
+		super();
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		Fabrica fabrica = Fabrica.getInstance();
+		IControladorActividad iconAct = fabrica.getIControladorActividad();
+		IControladorUsuario iconUsr = fabrica.getIControladorUsuario();
+		IControladorClase iconCla = fabrica.getIcontroladorClase();
+		HttpSession session = request.getSession();
+		Object logueado = session.getAttribute("usuario_logueado");
 		String x = logueado.toString();
 		String[] parts = x.split(" - ");
-        String sessionUsername = parts[0].trim();
-        String actividad = request.getParameter("actividades");
-        System.out.println("La actividad que traigo a cargar clases es: " + actividad);
-        dataTypeActividad auxiliar;
+		String sessionUsername = parts[0].trim();
+		String actividad = request.getParameter("actividades");
+		System.out.println("La actividad que traigo a cargar clases es: " + actividad);
+		dataTypeActividad auxiliar;
 		try {
 			auxiliar = iconAct.consultarActividad(actividad);
 			request.setAttribute("nombreActividad", auxiliar.getNombre());
@@ -48,17 +50,17 @@ public class cargarClasesActividad extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        List<dataTypeClase> aux = null;
+		List<dataTypeClase> aux = null;
 		try {
 			aux = iconCla.listarClasesPorActividad(actividad);
-			
+
 			request.setAttribute("listaCla", aux);
 			request.getRequestDispatcher("/consultarActividad.jsp").forward(request, response);
 		} catch (ClaseNoExisteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-    }
-    
+
+	}
+
 }

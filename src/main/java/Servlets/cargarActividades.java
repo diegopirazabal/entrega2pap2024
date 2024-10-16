@@ -16,39 +16,41 @@ import logica.IControladorUsuario;
 
 @WebServlet("/cargarActividades")
 public class cargarActividades extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    public cargarActividades() {
-        super();
-    }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	Fabrica fabrica = Fabrica.getInstance();
-        IControladorActividad iconAct = fabrica.getIControladorActividad();
-        IControladorUsuario iconUsr = fabrica.getIControladorUsuario();
-        HttpSession session = request.getSession();
-    	Object logueado = session.getAttribute("usuario_logueado");
+	public cargarActividades() {
+		super();
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		Fabrica fabrica = Fabrica.getInstance();
+		IControladorActividad iconAct = fabrica.getIControladorActividad();
+		IControladorUsuario iconUsr = fabrica.getIControladorUsuario();
+		HttpSession session = request.getSession();
+		Object logueado = session.getAttribute("usuario_logueado");
 		String x = logueado.toString();
 		String[] parts = x.split(" - ");
-        String sessionUsername = parts[0].trim(); // "carlos"   
-        try {
+		String sessionUsername = parts[0].trim(); // "carlos"
+		try {
 			request.setAttribute("listaAct", iconAct.listarTodas());
 			request.setAttribute("tipoUsuario", iconUsr.verInfoUsuario(sessionUsername));
 			String referer = request.getHeader("referer"); // URL de la página anterior
 
 			if (referer.contains("agregarClase.jsp")) {
-			    
-			    request.getRequestDispatcher("agregarClase.jsp").forward(request, response);
+
+				request.getRequestDispatcher("agregarClase.jsp").forward(request, response);
 			} else if (referer.contains("consultaClase")) {
-			    
-			    request.getRequestDispatcher("consultaClase.jsp").forward(request, response);
+
+				request.getRequestDispatcher("consultaClase.jsp").forward(request, response);
 			} else if (referer.contains("inscripcion.jsp")) {
-				request.getRequestDispatcher("inscripcion.jsp").forward(request, response);    
-			}else if (referer.contains("consultarActividad.jsp")) {
-				request.getRequestDispatcher("consultarActividad.jsp").forward(request, response);	
-			}else {
+				request.getRequestDispatcher("inscripcion.jsp").forward(request, response);
+			} else if (referer.contains("consultarActividad.jsp")) {
+				request.getRequestDispatcher("consultarActividad.jsp").forward(request, response);
+			} else {
 				System.out.println("ROMPISTE TODO QUEDASTE EN EL ELSE DE CARGAR ACTIVIDADESSSSSSSSSSSSSS");
 			}
-			
+
 		} catch (ActividadNoExisteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,6 +58,6 @@ public class cargarActividades extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    }
-    
+	}
+
 }

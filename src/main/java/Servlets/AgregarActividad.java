@@ -23,51 +23,51 @@ public class AgregarActividad extends HttpServlet {
     public AgregarActividad() {
         super();
     }
-	   @Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         Fabrica fabrica = Fabrica.getInstance();
         IControladorActividad iconAct = fabrica.getIControladorActividad();
         IControladorUsuario iconUsr = fabrica.getIControladorUsuario();
 
-       
-       String nombre = request.getParameter("nombre");
-       String descripcion = request.getParameter("descripcion");
-       int duracion = Integer.parseInt(request.getParameter("duracion"));
-       double costo = Double.parseDouble(request.getParameter("costo"));
-       String lugar = request.getParameter("lugar");
-       String entrenador = request.getParameter("entrenador");
-       //opcional
-       String imagen = null;
+        String nombre = request.getParameter("nombre");
+        String descripcion = request.getParameter("descripcion");
+        int duracion = Integer.parseInt(request.getParameter("duracion"));
+        double costo = Double.parseDouble(request.getParameter("costo"));
+        String lugar = request.getParameter("lugar");
+        String entrenador = request.getParameter("entrenador");
+        // opcional
+        String imagen = null;
 
-       try {
-           if (iconUsr.consultarUsuario(entrenador) == null) {
-               request.setAttribute("error", "El entrenador no existe.");
-               request.getRequestDispatcher("/inicioErroneo.jsp").forward(request, response);
-           }
+        try {
+            if (iconUsr.consultarUsuario(entrenador) == null) {
+                request.setAttribute("error", "El entrenador no existe.");
+                request.getRequestDispatcher("/inicioErroneo.jsp").forward(request, response);
+            }
 
-           LocalDate fechaAlta = LocalDate.now();  // Fecha actual
-           iconAct.crearActividad(nombre, descripcion, duracion, costo, lugar, Date.valueOf(fechaAlta), imagen, entrenador);
-           request.getRequestDispatcher("/index.jsp").forward(request, response);
+            LocalDate fechaAlta = LocalDate.now(); // Fecha actual
+            iconAct.crearActividad(nombre, descripcion, duracion, costo, lugar, Date.valueOf(fechaAlta), imagen,
+                    entrenador);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
 
-       } catch (ActividadRepetidaException e) {
-           request.setAttribute("error", "Ya existe una actividad con ese nombre.");
-           System.out.println("Actividad ya existente.");
-           request.setAttribute("descripcion", descripcion);
-           request.setAttribute("duracion", duracion);
-           request.setAttribute("costo", costo);
-           request.setAttribute("entrenador", entrenador);
-           request.setAttribute("lugar", lugar);
-           request.getRequestDispatcher("/agregarActividad.jsp").forward(request, response);
+        } catch (ActividadRepetidaException e) {
+            request.setAttribute("error", "Ya existe una actividad con ese nombre.");
+            System.out.println("Actividad ya existente.");
+            request.setAttribute("descripcion", descripcion);
+            request.setAttribute("duracion", duracion);
+            request.setAttribute("costo", costo);
+            request.setAttribute("entrenador", entrenador);
+            request.setAttribute("lugar", lugar);
+            request.getRequestDispatcher("/agregarActividad.jsp").forward(request, response);
 
-
-
-       } catch (UsuarioNoExisteException e) {
-           request.setAttribute("error", "Entrenador no encontrado.");
-           request.getRequestDispatcher("/inicioErroneo.jsp").forward(request, response);
-           System.out.println("Actividad creada correctamente.");
-} catch (UsuarioRepetidoException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	   }
+        } catch (UsuarioNoExisteException e) {
+            request.setAttribute("error", "Entrenador no encontrado.");
+            request.getRequestDispatcher("/inicioErroneo.jsp").forward(request, response);
+            System.out.println("Actividad creada correctamente.");
+        } catch (UsuarioRepetidoException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 }
