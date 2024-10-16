@@ -36,6 +36,9 @@
 	#costoClase{
 		display: none;
 	}
+	#idTipo{
+		display: none;
+	}
 </style>
 <body>
    <jsp:include page="/head.jsp"/>
@@ -76,13 +79,18 @@
 	<br>
 
 	
-	<h2>Dato de usuario desde el servlet:</h2>
 	<br>
 	<br>
-    <p>${nombre}</p>
-    <p>${apellido}</p>
-    <p>${email}</p>
-    <p>${fechaNac}</p>
+	<input type="text" value="${nombre}" class="form-control" readonly="readonly">
+	<br>
+	<input type="text" value="${apellido}" class="form-control" readonly="readonly">
+	<br>
+	<input type="text" value="${email}" class="form-control" readonly="readonly">
+	<br>
+	<input type="text" value="${fechaNac}" class="form-control" readonly="readonly">
+	<br>
+	<input type="text" value="${tipoUsuario}" class="form-control" readonly="readonly">
+	
     <p id="idTipo">${tipoUsuario}</p>
     <p id="listaAct">${disciplina}</p>
     <p id="listaCla">${auxiliar}</p>
@@ -105,9 +113,7 @@
 	 <br>
 	
 	 </div>
-	 <div class="d-flex justify-content-center">
-	    <jsp:include page="/footer.jsp"/>
-	 </div>	
+
 
 </body>
 <script>
@@ -133,7 +139,8 @@
 	        labelActividades.textContent = "Actividades:   ";
 	        var cajaActividades = document.createElement("select");
 	        cajaActividades.id = "actividades";
-	        cajaActividades.name = "actividades"; 
+	        cajaActividades.name = "actividades";
+	        cajaActividades.className = "form-control";
 	        contenedor.appendChild(labelActividades);
 	        contenedor.appendChild(cajaActividades);
 	        
@@ -159,6 +166,7 @@
 		        var cajaClases = document.createElement("select");
 		        cajaClases.id = "clases";
 		        cajaClases.name = "clases";
+		        cajaClases.className = "form-control";
 		        contenedor2.appendChild(labelClases);
 		        contenedor2.appendChild(cajaClases);
 		        
@@ -181,7 +189,8 @@
 	    	labelInscripciones.textContent = "Clases a las que esta inscrito:   ";
 	        var cajaInscripciones = document.createElement("select");
 	        cajaInscripciones.id = "inscripciones";
-	        cajaInscripciones.name = "inscripciones"; 
+	        cajaInscripciones.name = "inscripciones";
+	        cajaInscripciones.className = "form-control";
 	        contenedor.appendChild(labelInscripciones);
 			contenedor.appendChild(cajaInscripciones);
 	        
@@ -207,6 +216,7 @@
 		        var cajaCosto = document.createElement("input");
 		        cajaCosto.id = "cajaCosto";
 		        cajaCosto.name = "cajaCosto";
+		        cajaCosto.className = "form-control";
 		        cajaCosto.readOnly = true;
 		        var costosTexto = document.getElementById("costoClase").innerHTML;
 		        console.log("Esto es lo que estoy trayendo de costos: " + costosTexto);
@@ -216,7 +226,7 @@
 		        var costos = costosTexto.split(",").map(function(costo) {
 		            return parseFloat(costo.trim()); // Convertir los costos en números
 		        });
-		        cajaInscripciones.addEventListener("change", function() {
+		        cajaInscripciones.addEventListener("click", function() {
 		            var selectedIndex = cajaInscripciones.selectedIndex; // Obtener el índice de la opción seleccionada
 		            console.log("\n\nEste es el selected index = " + selectedIndex);
 		            var selectedCosto = costos[selectedIndex]; // Obtener el costo correspondiente

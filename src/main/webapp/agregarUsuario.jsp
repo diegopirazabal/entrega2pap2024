@@ -12,6 +12,58 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous"/>
 <title>Gimnasio | Agregar Usuario</title>
+
+<style>
+    /* Centrar formulario vertical y horizontalmente */
+    #content-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding-top: 80px; /* Espacio para el encabezado fijo */
+        background-color: #f8f9fa;
+    }
+
+    /* Estilo del formulario */
+    form {
+        max-width: 700px;
+        width: 700px;
+        padding: 50px;
+        background-color: white;
+        border-radius: 10px;
+        border: 2px solid #dee2e6;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Ajuste de los campos de entrada para que se vean más grandes */
+    .form-control {
+        padding: 15px;
+        font-size: 1.2rem;
+        height: 50px;
+    }
+
+    /* Botones más grandes */
+    .btn {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        height: 60px;
+    }
+
+    /* Etiquetas más grandes */
+    label {
+        font-size: 1.2rem;
+    }
+
+    /* Select box más grande */
+    select {
+        width: 100%;
+        height: 50px;
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+
+</style>
+
 <script>
 function mostrarElementos() {
     // Obtén el valor seleccionado del combo box
@@ -22,14 +74,14 @@ function mostrarElementos() {
     contenedor.innerHTML = "";
     
     if (seleccion === "entrenador") {
-        
         var etiqueta1 = document.createElement("label");
-        etiqueta1.innerHTML = "Descripcion:";
+        etiqueta1.innerHTML = "Descripción:";
         contenedor.appendChild(etiqueta1);
         
         var cajaDescripcion = document.createElement("input");
         cajaDescripcion.type = "text";
         cajaDescripcion.name = "disciplina";
+        cajaDescripcion.className = "form-control"; /* Ajusta el estilo del input */
         contenedor.appendChild(cajaDescripcion);
         
         contenedor.appendChild(document.createElement("br"));
@@ -40,102 +92,82 @@ function mostrarElementos() {
         
         var cajaSitioWeb = document.createElement("input");
         cajaSitioWeb.type = "text";
-        cajaSitioWeb.name = "sitioWeb"; 
+        cajaSitioWeb.name = "sitioWeb";
+        cajaSitioWeb.className = "form-control"; /* Ajusta el estilo del input */
         contenedor.appendChild(cajaSitioWeb);
     } else if (seleccion === "deportista") {
-    	var etiquetaCheckbox = document.createElement("label");
+        var etiquetaCheckbox = document.createElement("label");
         etiquetaCheckbox.innerHTML = "Es Profesional:";
         contenedor.appendChild(etiquetaCheckbox);
         
         var checkboxProfesional = document.createElement("input");
         checkboxProfesional.type = "checkbox";
-        checkboxProfesional.name = "esProfesional"; // Nombre del campo de entrada, esto se manda al servlet
+        checkboxProfesional.name = "esProfesional";
+        checkboxProfesional.className = "form-control";
         contenedor.appendChild(checkboxProfesional);
     }
 }
-
-    </script>
-    
+</script>
 
 </head>
 <body>
   
 	 <jsp:include page="/head.jsp"/>
 	
-  
-	 <div class="text-center">
-	    <h1>Agregar Usuario</h1>
-	 
-	     <form action="AgregarUsuario" method="post">
-	      
-		    <div class="form-group">
-			<label for="exampleNombre">Nombre</label> <input type="text" name="nombreUsuario" style="width: 400px
-				class="form-control" id="nombre"
-				aria-describedby="nombre" placeholder="Ingrese el nombre">
-		    </div>
-		     <div class="form-group">
-		    	<label for="exampleApellido">Apellido</label> <input type="text" name="apellidoUsuario" style="width: 400px
-				class="form-control" id="apellido"
-				placeholder="Ingrese el Apellido">
-		     </div>
-		      <div class="form-group">
-		    	<label for="exampleNickname">Nickname</label> <input type="text" name="nickUsuario" style="width: 400px
-				class="form-control" id="nickname"
-				placeholder="Ingrese el Nickname">
-		     </div>
-		     <div class="form-group">
-		    	<label for="exampleEmail">Email</label> <input type="text" name="emailUsuario" style="width: 400px
-				class="form-control" id="email"
-				placeholder="Ingrese el Email">
-		     </div>
-		     <div class="form-group">
-		    	<label for="examplePassword">Contrasena</label> <input type="password" name="passUsuario" style="width: 400px
-				class="form-control" id="password"
-				placeholder="Ingrese la Contrasena">
-		     </div>
-		     <div class="form-group">
-		    	<label for="examplePassword2">Repetir Contrasena</label> <input type="password" name="passUsuario2" style="width: 400px
-				class="form-control" id="password2"
-				placeholder="Repita la Contrasena">
-		     </div>
-		     <div class="form-group">
-		    	<label for="exampleFecha">Fecha de Nacimiento</label> <input type="date" name="fechaNac1" style="width: 400px
-				class="form-control" id="fechaNac1"
-				placeholder="">
-		     </div>
-		     <div class="form-group">
-		    	<label for="exampleCedula">Cedula</label> <input type="text" name="cedula" style="width: 400px
-				class="form-control" id="cedula"
-				placeholder="12345678">
-		     </div>
+	 <div id="content-wrapper">
+	    <div>
+	        <h1 class="text-center">Agregar Usuario</h1>
+	        
+	        <form action="AgregarUsuario" method="post">
+	            <div class="form-group">
+	                <label for="nombre">Nombre</label>
+	                <input type="text" name="nombreUsuario" class="form-control" id="nombre" placeholder="Ingrese el nombre">
+	            </div>
+	            <div class="form-group">
+	                <label for="apellido">Apellido</label>
+	                <input type="text" name="apellidoUsuario" class="form-control" id="apellido" placeholder="Ingrese el Apellido">
+	            </div>
+	            <div class="form-group">
+	                <label for="nickname">Nickname</label>
+	                <input type="text" name="nickUsuario" class="form-control" id="nickname" placeholder="Ingrese el Nickname">
+	            </div>
+	            <div class="form-group">
+	                <label for="email">Email</label>
+	                <input type="email" name="emailUsuario" class="form-control" id="email" placeholder="Ingrese el Email">
+	            </div>
+	            <div class="form-group">
+	                <label for="password">Contraseña</label>
+	                <input type="password" name="passUsuario" class="form-control" id="password" placeholder="Ingrese la Contraseña">
+	            </div>
+	            <div class="form-group">
+	                <label for="password2">Repetir Contraseña</label>
+	                <input type="password" name="passUsuario2" class="form-control" id="password2" placeholder="Repita la Contraseña">
+	            </div>
+	            <div class="form-group">
+	                <label for="fechaNac1">Fecha de Nacimiento</label>
+	                <input type="date" name="fechaNac1" class="form-control" id="fechaNac1">
+	            </div>
+	            <div class="form-group">
+	                <label for="cedula">Cédula</label>
+	                <input type="text" name="cedula" class="form-control" id="cedula" placeholder="12345678">
+	            </div>
 
-		     <div> 
-	    	    <label for="opciones">Selecciona tipo de usuario:</label>
-                   <select id="opciones" name="opciones" onchange="mostrarElementos()" >
-                    <option value="deportista">Deportista</option>
-                     <option value="entrenador">Entrenador</option>
-                   </select>
-		      </div>
-		      
+	            <div class="form-group"> 
+	                <label for="opciones">Selecciona tipo de usuario:</label>
+	                <select id="opciones" name="opciones" class="form-control" onchange="mostrarElementos()">
+	                    <option value="deportista">Deportista</option>
+	                    <option value="entrenador">Entrenador</option>
+	                </select>
+	            </div>
 		
-		   <!-- Contenedor para los elementos dinámicos -->
-            <div id="contenedorElementos">
-               
-            </div>
+	            <!-- Contenedor para los elementos dinámicos -->
+	            <div id="contenedorElementos" class="form-group"></div>
         
-         <br>
-		<button type="submit" class="btn btn-primary">Agregar Usuario</button>
-		
-	   </form>
-	
-	<br><br><br>
-	
-	
-    <jsp:include page="/footer.jsp"/>
+	            <button type="submit" class="btn btn-primary btn-block">Agregar Usuario</button>
+	        </form>
+	    </div>
+	 </div>
+
     
-    
-   </div>
-   
-   
 </body>
 </html>

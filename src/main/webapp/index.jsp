@@ -29,13 +29,13 @@
 	<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2000">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class="d-block w-100" style="max-width: 50%; height: auto; margin: 0 auto;" src="imagenes/img1.jpg" alt="First slide"  >
+				<img class="d-block w-100" style="max-width: 50%; height: auto; margin: 0 auto;" src="imagenes/image.png" alt="First slide"  >
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" style="max-width: 50%; height: auto; margin: 0 auto;" src="imagenes/img2.jpg" alt="Second slide">
+				<img class="d-block w-100" style="max-width: 50%; height: auto; margin: 0 auto;" src="imagenes/arnorld.png" alt="Second slide">
 			</div>
 			<div class="carousel-item">
-				<img class="d-block w-100" style="max-width: 50%; height: auto; margin: 0 auto;" src="imagenes/img3.jpg" alt="Third slide">
+				<img class="d-block w-100" style="max-width: 50%; height: auto; margin: 0 auto;" src="imagenes/image2.png" alt="Third slide">
 			</div>
 			<div class="carousel-item">
 				<img class="d-block w-100" style="max-width: 50%; height: auto; margin: 0 auto;" src="imagenes/img4.jpg" alt="Third slide">

@@ -41,10 +41,10 @@ public class cargarActividades extends HttpServlet {
 			} else if (referer.contains("consultaClase")) {
 			    
 			    request.getRequestDispatcher("consultaClase.jsp").forward(request, response);
-			} else {
-			    
-			    System.out.println("ROMPISTE TODO QUEDASTE EN EL ELSE DE CARGAR ACTIVIDADES");
-			    
+			} else if (referer.contains("inscripcion.jsp")) {
+				request.getRequestDispatcher("inscripcion.jsp").forward(request, response);    
+			}else {
+				System.out.println("ROMPISTE TODO QUEDASTE EN EL ELSE DE CARGAR ACTIVIDADESSSSSSSSSSSSSS");
 			}
 			
 		} catch (ActividadNoExisteException e) {

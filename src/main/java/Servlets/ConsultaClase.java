@@ -42,6 +42,7 @@ public class ConsultaClase extends HttpServlet {
 			aux = iconClase.listarClasesPorActividad(actividad);
 			request.setAttribute("listCla", aux);
 			request.getRequestDispatcher("/consultaClase.jsp").forward(request, response);
+			
 		} catch (ClaseNoExisteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
