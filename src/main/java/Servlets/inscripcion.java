@@ -43,8 +43,10 @@ public class inscripcion extends HttpServlet {
         String deportista = sessionUsername;
         try {
             dataTypeUsuario aux = iconUsr.verInfoUsuario(deportista);
-            if (aux.getTipo().equals("deportista")) {
+            
+            if (aux.getTipo().equals(false)) {
                 iconIns.agregarInscripcionAClase(deportista, clase, fechaIns);
+
             } else {
                 System.out.println("No se realizo la inscripcion porque el usuario no es deportista");
             }

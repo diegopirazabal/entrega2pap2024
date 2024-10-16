@@ -92,6 +92,7 @@ public class DetalleUsuario extends HttpServlet {
 					request.setAttribute("tipoUsuario", "Entrenador");
 				} else {// es Deportista
 					List<Inscripcion> listaInscripciones = controlCla.listarInscripcionesPorClase(nickname);
+					System.out.println("LAS CLASES A LAS QUE ESTA INSCRITO SON: " + listaInscripciones);
 					request.setAttribute("inscripciones", listaInscripciones);
 					request.setAttribute("tipoUsuario", "Deportista");
 				}
