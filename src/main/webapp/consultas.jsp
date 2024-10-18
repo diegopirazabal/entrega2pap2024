@@ -21,6 +21,8 @@ prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+                <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    
     <title>Turismo | Consultas</title>
   </head>
   <style>
@@ -42,109 +44,120 @@ prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
     #idTipo {
       display: none;
     }
+    
+    .contenedor{
+       padding: 20px;
+    margin: 20px;
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
   </style>
+  
+  
   <body>
     <jsp:include page="/head.jsp" />
-
-    <div class="d-flex justify-content-center">
-      <h1>Consultar Usuarios</h1>
-    </div>
-
-    <div class="d-flex justify-content-center">
-      <!-- El stilo para que quede uno abaja del otro los form -->
-      <form
-        action="ConsultaUsuario"
-        method="post"
-        style="display: block; margin-bottom: 20px"
-      >
-        <div class="form-group">
-          <div class="input-group-prepend">
-            <button type="submit" class="btn btn-primary">
-              Consultar Usuarios
-            </button>
-            <!-- Boton de arriba -->
-            <select id="opciones" name="opciones">
-              <c:forEach items="${opciones}" var="opcion">
-                <option value="${opcion}">${opcion}</option>
-              </c:forEach>
-            </select>
-          </div>
-        </div>
-      </form>
-    </div>
-
-    <div class="d-flex justify-content-center">
-      <form
-        action="DetalleUsuario"
-        method="post"
-        style="display: block; margin-bottom: 20px"
-      >
-        <div class="input-group-prepend">
-          <label for="exampleCedula">Nickname: </label> <input type="text"
-          name="nickname" style="width: 600px class="form-control" id="nickname"
-          placeholder="Ingrese Nickname">
-          <button type="submit" class="btn btn-primary">Detalle Usuario</button>
-          <button id="boton" type="button" class="btn">
-            Mostrar Actividades
-          </button>
-          <!-- Boton de arriba -->
-        </div>
-        <br />
-
-        <br />
-        <br />
-        <input
-          type="text"
-          value="${nombre}"
-          class="form-control"
-          readonly="readonly"
-        />
-        <br />
-        <input
-          type="text"
-          value="${apellido}"
-          class="form-control"
-          readonly="readonly"
-        />
-        <br />
-        <input
-          type="text"
-          value="${email}"
-          class="form-control"
-          readonly="readonly"
-        />
-        <br />
-        <input
-          type="text"
-          value="${fechaNac}"
-          class="form-control"
-          readonly="readonly"
-        />
-        <br />
-        <input
-          type="text"
-          value="${tipoUsuario}"
-          class="form-control"
-          readonly="readonly"
-        />
-
-        <p id="idTipo">${tipoUsuario}</p>
-        <p id="listaAct">${disciplina}</p>
-        <p id="listaCla">${auxiliar}</p>
-        <p id="listaInsc">${inscripciones}</p>
-        <p id="soyEse">${iguales}</p>
-        <p id="costoClase">${costoClase}</p>
-
-        <div class="input-group-prepend" id="contenedorElementos"></div>
-        <br />
-        <div class="input-group-prepend" id="contenedorElementos2"></div>
-        <br />
-        <br />
-      </form>
-
-      <br />
-      <br />
-    </div>
+	<div class="contenedor"> 
+	    <div class="d-flex justify-content-center">
+	      <h1>Consultar Usuarios</h1>
+	    </div>
+	
+	    <div class="d-flex justify-content-center">
+	      <!-- El stilo para que quede uno abaja del otro los form -->
+	      <form
+	        action="ConsultaUsuario"
+	        method="post"
+	        style="display: block; margin-bottom: 20px"
+	      >
+	        <div class="form-group">
+	          <div class="input-group-prepend">
+	            <button type="submit" class="btn btn-primary">
+	              Consultar Usuarios
+	            </button>
+	            <!-- Boton de arriba -->
+	            <select id="opciones" name="opciones">
+	              <c:forEach items="${opciones}" var="opcion">
+	                <option value="${opcion}">${opcion}</option>
+	              </c:forEach>
+	            </select>
+	          </div>
+	        </div>
+	      </form>
+	    </div>
+	
+	    <div class="d-flex justify-content-center">
+	      <form
+	        action="DetalleUsuario"
+	        method="post"
+	        style="display: block; margin-bottom: 20px"
+	      >
+	        <div class="input-group-prepend">
+	          <label for="exampleCedula">Nickname: </label> <input type="text"
+	          name="nickname" style="width: 600px class="form-control" id="nickname"
+	          placeholder="Ingrese Nickname">
+	          <button type="submit" class="btn btn-primary">Detalle Usuario</button>
+	          <button id="boton" type="button" class="btn">
+	            Mostrar Actividades
+	          </button>
+	          <!-- Boton de arriba -->
+	        </div>
+	        <br />
+	
+	        <br />
+	        <br />
+	        <input
+	          type="text"
+	          value="${nombre}"
+	          class="form-control"
+	          readonly="readonly"
+	        />
+	        <br />
+	        <input
+	          type="text"
+	          value="${apellido}"
+	          class="form-control"
+	          readonly="readonly"
+	        />
+	        <br />
+	        <input
+	          type="text"
+	          value="${email}"
+	          class="form-control"
+	          readonly="readonly"
+	        />
+	        <br />
+	        <input
+	          type="text"
+	          value="${fechaNac}"
+	          class="form-control"
+	          readonly="readonly"
+	        />
+	        <br />
+	        <input
+	          type="text"
+	          value="${tipoUsuario}"
+	          class="form-control"
+	          readonly="readonly"
+	        />
+	
+	        <p id="idTipo">${tipoUsuario}</p>
+	        <p id="listaAct">${disciplina}</p>
+	        <p id="listaCla">${auxiliar}</p>
+	        <p id="listaInsc">${inscripciones}</p>
+	        <p id="soyEse">${iguales}</p>
+	        <p id="costoClase">${costoClase}</p>
+	
+	        <div class="input-group-prepend" id="contenedorElementos"></div>
+	        <br />
+	        <div class="input-group-prepend" id="contenedorElementos2"></div>
+	        <br />
+	        <br />
+	      </form>
+	
+	      <br />
+	      <br />
+	    </div>
+	</div>
   </body>
   <script>
     var boton = document.getElementById("boton");

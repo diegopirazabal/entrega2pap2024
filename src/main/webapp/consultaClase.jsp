@@ -18,6 +18,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
     <title>Turismo | Consultas</title>
 
     <style>
@@ -35,9 +37,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 100vh;
         padding-top: 80px; /* Espacio para el encabezado fijo */
-        background-color: #f8f9fa;
+
       }
 
       /* Estilo del formulario */
@@ -45,9 +46,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         max-width: 600px;
         width: 600px;
         padding: 20px;
-        background-color: white;
+        background-color: rgba(0, 0, 0, .3);
         border-radius: 10px;
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
       #contenedorElementos,

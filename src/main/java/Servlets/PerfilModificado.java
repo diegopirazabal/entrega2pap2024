@@ -43,7 +43,7 @@ public class PerfilModificado extends HttpServlet {
 		String sessionUsername = parts[0].trim(); // "carlos"
 		String sessionFullName = parts[1].trim(); // "Carlos Tevez"
 		dataTypeUsuario aux;
-
+/*
 		try {
 			aux = icon.verInfoUsuario(sessionUsername);
 			// String apellido = (String) request.getAttribute("apellido");
@@ -67,6 +67,7 @@ public class PerfilModificado extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+*/
 	}
+	
 }

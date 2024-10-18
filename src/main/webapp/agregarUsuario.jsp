@@ -16,6 +16,9 @@ pageEncoding="UTF-8"%>
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    
+        <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    
     <title>Gimnasio | Agregar Usuario</title>
 
     <style>
@@ -26,7 +29,6 @@ pageEncoding="UTF-8"%>
         align-items: center;
         min-height: 100vh;
         padding-top: 80px; /* Espacio para el encabezado fijo */
-        background-color: #f8f9fa;
       }
 
       /* Estilo del formulario */
@@ -57,6 +59,7 @@ pageEncoding="UTF-8"%>
       /* Etiquetas más grandes */
       label {
         font-size: 1.2rem;
+        color:black;
       }
 
       /* Select box más grande */
@@ -120,7 +123,7 @@ pageEncoding="UTF-8"%>
 
     <div id="content-wrapper">
       <div>
-        <h1 class="text-center">Agregar Usuario</h1>
+        <h1 class="text-center" style="color: white;">Agregar Usuario</h1>
 
         <form action="AgregarUsuario" method="post">
           <div class="form-group">

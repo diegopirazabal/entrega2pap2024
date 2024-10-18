@@ -35,12 +35,13 @@ pageEncoding="UTF-8"%>
       class="carousel slide"
       data-ride="carousel"
       data-interval="2000"
+      style = "margin-top: 20px"
     >
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img
             class="d-block w-100"
-            style="max-width: 50%; height: auto; margin: 0 auto"
+            style="max-width: 50%; height: 550px; margin: 0 auto; object-fit: contain; border-radius: 20px;"
             src="imagenes/image.png"
             alt="First slide"
           />
@@ -48,15 +49,15 @@ pageEncoding="UTF-8"%>
         <div class="carousel-item">
           <img
             class="d-block w-100"
-            style="max-width: 50%; height: auto; margin: 0 auto"
-            src="imagenes/arnorld.png"
+            style="max-width: 50%; height: 550px; margin: 0 auto; object-fit: contain; border-radius: 20px;"
+            src="imagenes/img1.png"
             alt="Second slide"
           />
         </div>
         <div class="carousel-item">
           <img
             class="d-block w-100"
-            style="max-width: 50%; height: auto; margin: 0 auto"
+            style="max-width: 50%; height: 550px; margin: 0 auto; object-fit: contain; border-radius: 20px;"
             src="imagenes/image2.png"
             alt="Third slide"
           />
@@ -64,7 +65,7 @@ pageEncoding="UTF-8"%>
         <div class="carousel-item">
           <img
             class="d-block w-100"
-            style="max-width: 50%; height: auto; margin: 0 auto"
+            style="max-width: 50%; height: 550px; margin: 0 auto; object-fit: contain; border-radius: 20px;"
             src="imagenes/img4.jpg"
             alt="Third slide"
           />

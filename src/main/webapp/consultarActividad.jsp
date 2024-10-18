@@ -21,6 +21,9 @@ prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    
+            <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    
 
     <style>
       #listaInsc,
@@ -30,13 +33,23 @@ prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
       #idTipo {
         display: none;
       }
+      
+      .contenedor{
+      padding: 20px;
+    margin: 20px;
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 90%;
+      }
     </style>
+    
   </head>
   <body>
     <!-- Incluye el encabezado -->
     <jsp:include page="/head.jsp" />
 
-    <div class="container my-5">
+    <div class="contenedor">
       <div class="text-center">
         <h1>Consultar Actividades</h1>
       </div>
