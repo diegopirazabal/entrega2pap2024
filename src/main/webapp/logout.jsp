@@ -11,5 +11,3 @@
     // Redirige al login o a la página principal
     response.sendRedirect("index.jsp");  // Cambia la ruta según la página a la que desees redirigir
 %>
-
-

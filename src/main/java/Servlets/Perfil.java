@@ -18,31 +18,31 @@ import logica.IControladorUsuario;
 /**
  * Servlet implementation class Home
  */
-@WebServlet ("/perfil")
+@WebServlet("/perfil")
 public class Perfil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Perfil() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public Perfil() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    @Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-    	HttpSession session = request.getSession();
-    	Fabrica fabrica = Fabrica.getInstance();
-    	IControladorUsuario icon = fabrica.getIControladorUsuario();
-    	Object logueado = session.getAttribute("usuario_logueado");
+		HttpSession session = request.getSession();
+		Fabrica fabrica = Fabrica.getInstance();
+		IControladorUsuario icon = fabrica.getIControladorUsuario();
+		Object logueado = session.getAttribute("usuario_logueado");
 		String x = logueado.toString();
 		String[] parts = x.split(" - ");
-        String sessionUsername = parts[0].trim(); // "carlos"
-        String sessionFullName = parts[1].trim();  // "Carlos Tevez"
+		String sessionUsername = parts[0].trim(); // "carlos"
+		String sessionFullName = parts[1].trim(); // "Carlos Tevez"
 		dataTypeUsuario aux;
-		
 
 		try {
 			aux = icon.verInfoUsuario(sessionUsername);
@@ -53,15 +53,17 @@ public class Perfil extends HttpServlet {
 			request.setAttribute("email", aux.getEmail());
 			Date fecha = aux.getFNacimiento();
 			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-	        String fechaFormateada = sdf.format(fecha);
+			String fechaFormateada = sdf.format(fecha);
 			request.setAttribute("fecha", fechaFormateada);
 
 			String nombre = request.getParameter("nombre");
 			String apellido = request.getParameter("apellido");
-			//icon.editarNombreApellido(sessionUsername, nombre, apellido);
-			//aux = icon.verInfoUsuario(sessionUsername);
-			//System.out.println("El usuario modificado es: " + aux.getNombre() + " " + aux.getApellido());
-			//request.getRequestDispatcher("/PerfilModificado.jsp").forward(request, response);
+			// icon.editarNombreApellido(sessionUsername, nombre, apellido);
+			// aux = icon.verInfoUsuario(sessionUsername);
+			// System.out.println("El usuario modificado es: " + aux.getNombre() + " " +
+			// aux.getApellido());
+			// request.getRequestDispatcher("/PerfilModificado.jsp").forward(request,
+			// response);
 
 			request.getRequestDispatcher("/perfil.jsp").forward(request, response);
 
@@ -69,7 +71,6 @@ public class Perfil extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 
 	}
 }

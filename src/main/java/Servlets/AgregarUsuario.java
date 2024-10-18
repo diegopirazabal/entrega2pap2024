@@ -19,20 +19,22 @@ import logica.IControladorUsuario;
 public class AgregarUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
 	public AgregarUsuario() {
-        super();
-    }
+		super();
+	}
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-		// llamar a metodo de el package modelo, eso seria lo correcto para seguir MVC, patron de diseño
+		// llamar a metodo de el package modelo, eso seria lo correcto para seguir MVC,
+		// patron de diseño
 		System.out.println("voy a AGREGAR");
 		Fabrica fabrica = Fabrica.getInstance();
 		IControladorUsuario icon = fabrica.getIControladorUsuario();
@@ -50,7 +52,7 @@ public class AgregarUsuario extends HttpServlet {
 			e.printStackTrace();
 		}
 		String contrasena = request.getParameter("passUsuario");
-		String contrasena2 = request.getParameter("passUsuario2");//para comparar
+		String contrasena2 = request.getParameter("passUsuario2");// para comparar
 		String disciplina = request.getParameter("disciplina");
 		String sitioweb = request.getParameter("sitioWeb");
 		String cedula = request.getParameter("cedula");
@@ -58,33 +60,37 @@ public class AgregarUsuario extends HttpServlet {
 		String esProfesional = null;
 		Boolean esEntrenador;
 		System.out.println("\nEl valor del checkbox que traigo es: " + esProfesional);
-		if(contrasena.equals(contrasena2)) {
+		if (contrasena.equals(contrasena2)) {
 
 			try {
-			if (request.getParameter("opciones").equals("deportista")) {
-				esProfesional = request.getParameter("esProfesional");
-				if(esProfesional.equals(null))
-				esProfesional1 = false;
-				if(esProfesional.equals("on"))
-				esProfesional1 = true;
-				esEntrenador = false;
-				icon.crearDeportista(nickname, nombre, apellido, email, fechaNac, esEntrenador, contrasena, esProfesional1);
-			}else if(request.getParameter("opciones").equals("entrenador")) {
+				if (request.getParameter("opciones").equals("deportista")) {
+					esProfesional = request.getParameter("esProfesional");
+					if (esProfesional.equals(null))
+						esProfesional1 = false;
+					if (esProfesional.equals("on"))
+						esProfesional1 = true;
+					esEntrenador = false;
+					icon.crearDeportista(nickname, nombre, apellido, email, fechaNac, esEntrenador, contrasena,
+							esProfesional1);
+				} else if (request.getParameter("opciones").equals("entrenador")) {
 
-				esEntrenador = true;
-				icon.crearEntrenador(nickname, nombre, apellido, email, fechaNac, esEntrenador, contrasena, disciplina, sitioweb);
-			}
-			RequestDispatcher rd;
-			request.setAttribute("mensaje", "Se ha ingresado correctamente el usuario " + nombre + " de nick " + nickname + " en el sistema.");
-			rd = request.getRequestDispatcher("/notificacion.jsp");
-			rd.forward(request, response);
-			}catch (UsuarioRepetidoException e) {
-				// TODO Auto-generated catch block
+					esEntrenador = true;
+					icon.crearEntrenador(nickname, nombre, apellido, email, fechaNac, esEntrenador, contrasena,
+							disciplina, sitioweb);
+				}
 				RequestDispatcher rd;
-				request.setAttribute("mensaje", "Ya existe un usuario con ese correo (" + email + ") o ese nickname (" + nickname + ").");
+				request.setAttribute("mensaje", "Se ha ingresado correctamente el usuario " + nombre + " de nick "
+						+ nickname + " en el sistema.");
 				rd = request.getRequestDispatcher("/notificacion.jsp");
 				rd.forward(request, response);
-				}
+			} catch (UsuarioRepetidoException e) {
+				// TODO Auto-generated catch block
+				RequestDispatcher rd;
+				request.setAttribute("mensaje",
+						"Ya existe un usuario con ese correo (" + email + ") o ese nickname (" + nickname + ").");
+				rd = request.getRequestDispatcher("/notificacion.jsp");
+				rd.forward(request, response);
 			}
 		}
+	}
 }
