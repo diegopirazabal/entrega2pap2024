@@ -53,7 +53,7 @@ public class Login extends HttpServlet {
 			} else {
 				result = icon.consultarUsuario(login);
 			}
-			System.out.println("El usuario que encontre es: " + result.getNombre());
+			
 			if (login.equals(result.getNickname()) || login.equals(result.getEmail())) {
 				if (password.equals(result.getContrasena())) {
 					nuevoEstado = EstadoSesion.LOGIN_CORRECTO;

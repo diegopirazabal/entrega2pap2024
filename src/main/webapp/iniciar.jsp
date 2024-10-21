@@ -16,7 +16,6 @@ pageEncoding="UTF-8"%> <%@page errorPage="/WEB-INF/500.jsp" %>
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" type="text/css" href="styles/main.css" />
     <title>Iniciar Sesión</title>
 
     <style type="text/css">
